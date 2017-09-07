@@ -1,4 +1,6 @@
 
+!define Local
+
 !ifdef USER
 	actor user
 !endif
@@ -27,7 +29,7 @@
   end box
 !endif
 
-!ifdef headerPHP || navigationPHP || page_footerPHP || html_footerPHP || recaptcha_configPHP || google_oauth_loginPHP || facebook_oauth_login_PHP
+!ifdef headerPHP || navigationPHP || page_footerPHP || html_footerPHP || recaptcha_configPHP || google_oauth_loginPHP || facebook_oauth_loginPHP
 	box "users/includes/" #Gainsboro
 		!ifdef headerPHP
 			entity "header.php" as header
@@ -53,7 +55,7 @@
 			control "google_oauth_login.php" as google_oauth_login
 		!endif
 			
-		!ifdef facebook_oauth_login_PHP
+		!ifdef facebook_oauth_loginPHP
 			control "facebook_oauth.php" as facebook_oauth_login
 		!endif		
   end box

@@ -1,5 +1,7 @@
 @startuml
 
+title users/account.php
+
 'Begin definitions
 
 !define USER
@@ -11,7 +13,11 @@
 
 'End definitions
 
-!include _actors.iuml
+!ifdef Local
+	!include _actors.iuml
+!else
+	!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+!endif
 
 
 user->account : Requests

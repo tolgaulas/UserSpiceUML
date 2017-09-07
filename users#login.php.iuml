@@ -1,19 +1,29 @@
 @startuml
 
+title users/login.php
+
 'Begin definitions
 
 !define USER
-!define accountPHP
 !define loginPHP
-!define joinPHP
+!define initPHP
 !define headerPHP
 !define navigationPHP
+!define recaptcha_configPHP
+!define custom_login_scriptPHP
+!define google_oauth_loginPHP
+!define facebook_oauth_loginPHP
+!define page_footerPHP
+!define html_footerPHP
+
 
 'End definitions
 
-!include _actors.iuml
-
-title  users/login.php
+!ifdef Local
+	!include _actors.iuml
+!else
+	!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+!endif
 
 note over user 
 	This requires rework on the flow logic
