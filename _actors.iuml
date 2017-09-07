@@ -56,7 +56,7 @@
 		!endif
 			
 		!ifdef facebook_oauth_loginPHP
-			control "facebook_oauth.php" as facebook_oauth_login
+			control "facebook_oauth_login.php" as facebook_oauth_login
 		!endif		
   end box
 !endif

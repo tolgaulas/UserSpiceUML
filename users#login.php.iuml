@@ -1,6 +1,14 @@
 @startuml
+!include _local.iuml
 
-title users/login.php
+!define TITLE "users/login.php"
+
+!ifdef Local
+	title TITLE (ON LOCAL)
+!else
+	title TITLE
+!endif
+
 
 'Begin definitions
 
