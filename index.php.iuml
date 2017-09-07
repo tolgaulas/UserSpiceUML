@@ -1,0 +1,39 @@
+﻿
+@startuml
+
+
+'Begin definitions
+
+!define indexPHP
+!define USER
+!define accountPHP
+!define loginPHP
+!define joinPHP
+!define headerPHP
+!define navigationPHP
+
+'End definitions
+
+!include _actors.iuml
+
+user->index: Requests
+
+activate index
+    index <- header : included
+    index <- navigation: included
+  
+	alt $user->isLoggedIn() == TRUE
+		|||
+        index o--> account : ACCOUNT link
+		|||
+	else $user->isLoggedIn() != TRUE
+ 		|||
+ 		index o--> login :  LOGIN link
+        index o--> join : JOIN link
+        |||
+  	end
+  index->user : Display page
+
+deactivate index
+
+@enduml

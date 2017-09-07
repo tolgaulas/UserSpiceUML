@@ -1,0 +1,27 @@
+@startuml
+
+'Begin definitions
+
+!define USER
+!define accountPHP
+!define loginPHP
+!define joinPHP
+!define headerPHP
+!define navigationPHP
+
+'End definitions
+
+!include _actors.iuml
+
+
+user->account : Requests
+
+
+
+
+
+
+
+
+
+@enduml

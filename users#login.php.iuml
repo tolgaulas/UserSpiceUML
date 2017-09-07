@@ -1,0 +1,53 @@
+@startuml
+
+'Begin definitions
+
+!define USER
+!define accountPHP
+!define loginPHP
+!define joinPHP
+!define headerPHP
+!define navigationPHP
+
+'End definitions
+
+!include _actors.iuml
+
+title  users/login.php
+
+note over user 
+	This requires rework on the flow logic
+end note
+
+user->login : Requests
+
+activate login
+	login <- init : included
+	login <- header : included
+    login <- navigation: included
+    group if Input::exists()
+      group if $settings->recaptcha == 1
+          login <- recaptcha_config : included
+      else
+
+      end
+      login <-custom_login_script : included
+
+	end
+
+	group if $settings->glogin==1
+		login <- google_oauth_login : included
+	end
+
+	group if $settings->fblogin==1
+		login <- facebook_oauth_login : included
+	end 
+
+	login <- page_footer : included
+    login <- html_footer : included
+    
+login->user : Display page
+deactivate login
+
+
+@enduml

@@ -1,0 +1,68 @@
+
+!ifdef USER
+	actor user
+!endif
+
+!ifdef indexPHP
+	boundary "index.php" as index
+!endif
+
+!ifdef accountPHP || joinPHP || loginPHP || initPHP
+  box "users/" #WhiteSmoke
+  	!ifdef accountPHP 
+      boundary "account.php" as account
+    !endif
+    
+    !ifdef joinPHP
+		boundary "join.php" as join
+    !endif
+    
+    !ifdef loginPHP
+		boundary "login.php" as login
+	!endif
+    
+    !ifdef initPHP
+		control "init.php" as init
+    !endif
+  end box
+!endif
+
+!ifdef headerPHP || navigationPHP || page_footerPHP || html_footerPHP || recaptcha_configPHP || google_oauth_loginPHP || facebook_oauth_login_PHP
+	box "users/includes/" #Gainsboro
+		!ifdef headerPHP
+			entity "header.php" as header
+		!endif
+
+		!ifdef navigationPHP
+			entity "navigation.php" as navigation
+        !endif
+
+		!ifdef page_footerPHP
+			entity "page_footer.php" as page_footer
+		!endif
+			
+		!ifdef html_footerPHP
+			entity "html_footer.php" as html_footer
+		!endif
+			
+		!ifdef recaptcha_configPHP
+			control "recaptcha.config.php" as recaptcha_config
+		!endif
+			
+		!ifdef google_oauth_loginPHP
+			control "google_oauth_login.php" as google_oauth_login
+		!endif
+			
+		!ifdef facebook_oauth_login_PHP
+			control "facebook_oauth.php" as facebook_oauth_login
+		!endif		
+  end box
+!endif
+
+!ifdef custom_login_scriptPHP
+	box "usersc/scripts/" #Silver
+		!ifdef custom_login_scriptPHP
+			control "custom_login_script.php" as custom_login_script
+		!endif
+	end box
+!endif
