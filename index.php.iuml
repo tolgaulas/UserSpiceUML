@@ -23,7 +23,7 @@ activate index
   
 	alt $user->isLoggedIn() == TRUE
 		|||
-        index o--> account LINK : ACCOUNT link
+        index o--> account: <size:20><&link-intact></size>
 		|||
 	else $user->isLoggedIn() != TRUE
  		|||
