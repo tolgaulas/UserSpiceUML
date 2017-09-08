@@ -1,0 +1,86 @@
+@startuml 
+
+!include CLASS_.plantuml
+
+'users/helpers/
+Namespace helpers{
+	class audit PHP{
+		getIP()
+		fetchUserjsonPIE()
+		fetchUserjsonLG2()
+		fetchUserjsonLG()
+		fetchAllLatest($userid,$start,$end,$eventcode)
+		countStuff($what)
+		countLoginsSince($eventcode,$since)
+		ago($time)
+		fetchAllAudit()
+		fetchUserAudit($userid)
+		writeAudit($userid,$userip,$othus,$event,$action,$itemid=0)
+	}
+
+	class backup_util PHP{
+		csv_to_array($filename='', $delimiter=',')
+		recurse_copy($src,$dst)
+		zipData($source, $destination)
+		rrmdir($src)
+		delete_dir($dir) 
+		backupObjects($backupItems,$backupPath)
+		backupZip($backupPath,$delBackupPath=false)
+		backupUsTables($backupPath)
+		backupUsTable($backupPath)
+		extractZip($restoreFile,$restoreDest)
+		importSqlFile($sqlFile)
+	}
+
+	'class google_helpers  {
+
+	'}
+	'google_helpers <. users.src.Google.Google_Client : includes
+	'google_helpers <. users.src.Google.contrib.Google_Oauth2Service : includes
+
+
+	class helpers {
+		size($path)
+		sanitize($string)
+		currentPage()
+		currentFolder()
+		format_date($date,$tz)
+		abrev_date($date,$tz)
+		money($ugly)
+		name_from_id($id)
+		display_errors($errors = array())
+		display_successes($successes = array())
+		email($to,$subject,$body,$attachment=false)
+		email_body($template,$options = array())
+		inputBlock($type,$label,$id,$divAttr=array(),$inputAttr=array(),$helper='')
+		dump($var)
+		dnd($var)
+		bold($text)
+		err($text)
+		redirect($location)
+		output_message($message)
+	}
+
+	class us_helpers PHP{
+		testUS()
+		get_gravatar(...)
+		permissionIdExists($id)
+		userIdExists($id)
+		fetchPermissionDetails($id)
+		updatePermissionName($id, $name)
+	}
+	
+	class language PHP{
+	}
+
+	class users_online PHP{
+		usersOnline()
+		ipCheck()
+		new_user_online($user_id)
+		delete_user_online()
+		count_users()
+	}
+'Namepace helpers	
+}
+
+@enduml

@@ -1,0 +1,135 @@
+@startuml 
+
+!include CLASS_.plantuml
+
+'/users/
+namespace users {
+
+	together {
+		class account PHP {
+		}
+
+		class admin PHP {
+		}
+
+		class admin_backup PHP {
+		}
+
+		class admin_page PHP {
+		}
+
+		class admin_pages PHP {
+		}
+
+		class admin_permission PHP {
+		}
+
+		class admin_permissions PHP {
+		}
+
+		class admin_user PHP {
+		}
+
+		class admin_users PHP {
+		}
+
+		class check_updates PHP {
+		}
+
+		class create_message PHP {
+		}
+
+		class edit_profile PHP {
+		}
+
+		class email_settings PHP {
+		}
+		
+		class email_test PHP {
+		}
+
+		class fb-callback PHP {
+		}
+
+		class forgot_password PHP {
+		}
+
+		class forgot_password_reset PHP {
+		}
+
+		class google_helpers PHP {
+		}
+
+		class index PHP {
+		}
+
+		class init PHP {
+		}
+
+		class join PHP {
+		}
+	
+		class joinThankYou PHP {
+		}
+		
+		class login PHP {
+		}
+
+		class logout PHP {
+		}
+
+		class maintenance PHP{
+		}
+
+		class message PHP {
+		}
+
+		class oauth_success PHP {
+		}
+
+		class profile PHP {
+		}
+
+		class times PHP {
+		}
+
+		class tomfoolery PHP {
+		}
+
+		class user_settings PHP {
+		}
+
+		class verify PHP {
+		}
+
+		class verify_resend PHP {
+		}
+
+		class view_all_users PHP {
+		}
+
+		'users.account <. users.init : included
+
+		class admin_page PHP {
+		}
+		
+		class admin_pages PHP {
+		}
+	}
+
+	'namespace blank_pages
+	!include CLASS_users#blank_pages.plantuml
+	'namespace classes
+	!include CLASS_users#classes.plantuml
+	'namespace helpers
+	!include CLASS_users#helpers.plantuml
+	'namespace includes
+	!include CLASS_users#includes.plantuml
+	'namespace src
+	!include CLASS_users#src.plantuml
+	'namespace views
+	!include CLASS_users#views.plantuml
+
+}
+
+@enduml

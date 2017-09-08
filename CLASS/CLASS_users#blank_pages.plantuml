@@ -1,0 +1,16 @@
+@startuml 
+
+!include CLASS_.plantuml
+
+'/users/blank_pages/
+namespace blank_pages{
+	class project_root PHP {
+	}
+
+	class userspice_blank PHP {
+	}
+	
+'Namespace blank_pages
+}
+
+@enduml

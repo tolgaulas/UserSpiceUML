@@ -1,0 +1,210 @@
+@startuml 
+
+!include CLASS_.plantuml
+
+'/users/classes/
+namespace classes{
+	class Config PHP {
+		+get()
+	}
+
+	class Cookie PHP {
+		+exists()
+		+get()
+		+put()
+		+delete()
+	}
+
+	class DB PHP {
+		-$_Instance
+		-$_pdo
+		-$_query
+		-$_error
+		-$_results
+		-$_ResultsArray
+		-$_count
+		-$_lastId
+		-$_queryCount
+		-_construct()
+		+getInstance()
+		+query()
+		+findAll()
+		+findById()
+		+action()
+		+get()
+		+delete()
+		+deleteByID()
+		+insert()
+		+update()
+		+results()
+		+first()
+		+count()
+		+error()
+		+lastID()
+		+getQueryCount()
+	}		
+
+	class Hash PHP {
+		+make()
+		+salt()
+		+unique():
+	}
+
+	class Input PHP {
+		+exists()::boolean
+		+get()
+		+sanitize()
+	}		
+
+	class Redirect PHP {
+		+to()
+	}			
+
+	class Session PHP {
+		+exists()
+		+put()
+		+delete()
+		+get()
+		+flash()
+		+uagent_no_version()
+	}
+
+	package Shuttle_Dumper.php{
+		abstract class Shuttle_Dump_File {
+			#$fh
+			#$file_location
+			{abstract}write()
+			{abstract}end()
+			create()
+			__construct()
+			is_gzip()
+		}
+
+		class Shuttle_Dump_File_Plaintext extends Shuttle_Dump_File {
+			+open()
+			+write()
+			+end()
+		}
+
+		class Shuttle_Dump_File_Gzip extends Shuttle_Dump_File{
+			+open()
+			+write()
+			+end()
+		}
+
+		class Shuttle_Insert_Statement{
+			-$rows
+			-$length
+			-$table
+			__construct()
+			reset()
+			add_row()
+			get_sql()
+			get_length()
+		}
+
+		abstract class Shuttle_Dumper{
+			~INSERT_THRESHOLD
+			+$db
+			$dump_file
+			$eol
+			$include_tables
+			$exclude_tables
+			{static}create()
+			__construct()
+			{static}has_shell_access()
+			{static}is_shell_command_available()
+			{abstract}dump()
+			~get_tables()
+		}
+
+		class Shuttle_Dumper_ShellCommand extends Shuttle_Dumper{
+			dump()
+		}
+
+		class Shuttle_Dumper_Native extends Shuttle_Dumper{
+			dump()
+			#dump_table()
+		}
+
+		class Shuttle_DBConn{
+			+$host
+			+$username
+			+password
+			+$name
+			#$connection
+			__construct()
+			{static} create()
+		}
+
+		class Shuttle_DBConn_Mysql extends Shuttle_DBConn{
+			connect()
+			query()
+			fetch_numeric()
+			fetch()
+			escape()
+			escape_like()
+			get_var()
+			fetch_row()
+		}
+
+		class Shuttle_DBConn_Mysqli extends Shuttle_DBConn {
+			connect()
+			query()
+			fetch_numeric()
+			fetch()
+			escape()
+			escape_like()
+			get_var()
+			fetch_row()
+		}
+
+		class Shuttle_Exception extends Exception{ 
+
+		}
+
+	}
+
+	class Token PHP {
+		+{static} generate()
+		+{static} check()
+	}	
+
+	class User PHP {
+		-$_db
+		-$_data
+		-$_sessionName
+		-$_isLoggedIn
+		-$_cookieName
+		+$tableName
+		+__construct()
+		+create() 
+		+find()
+		+login()
+		+loginEmail()
+		+checkUser()
+		+exists()
+		+data()
+		+isLoggedIn()
+		+notLoggedInRedirect()
+		+logout()
+		+update()
+		+hasPermission()
+		+noPermissionRedirect()
+	}			
+
+	class Validate PHP {
+		-$_passed
+		-$_errors
+		-$_db
+		+__construct()
+		+check()
+		+addError()
+		+display_errors()
+		+errors() >> $this->$_errors
+		+passed() >> $this->$_passed
+	}		
+'Namespace Classes
+}
+
+@enduml

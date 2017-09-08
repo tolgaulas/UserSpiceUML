@@ -1,0 +1,11 @@
+@startuml 
+!include CLASS_.plantuml
+
+'/usersc/
+Namespace usersc {
+	!include CLASS_usersc#includes.plantuml
+	!include CLASS_usersc#scripts.plantuml
+	'Namespace usersc	
+}
+
+@enduml

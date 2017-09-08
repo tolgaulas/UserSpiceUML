@@ -1,4 +1,5 @@
 {    
     "editor.fontSize": 18,
     "plantuml.render": "Local",
-}
+    "plantuml.previewFileType":"svg",
+    "plantuml.previewAutoUpdate": false

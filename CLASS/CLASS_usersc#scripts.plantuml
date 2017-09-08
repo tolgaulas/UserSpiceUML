@@ -1,0 +1,24 @@
+@startuml 
+!include CLASS_.plantuml
+
+'/usersc/scripts
+Namespace scripts {
+	class custom_login_script PHP{
+	}
+	
+	class did_not_have_permission PHP{
+	}
+
+	class just_after_logout PHP {
+	}
+
+	class just_before_logout PHP{
+	}
+
+	class not_logged_in PHP{
+	}
+'Namespace scripts
+}
+
+
+@enduml

@@ -1,12 +1,86 @@
-@startuml ClassIUML
-page 2x2
-skinparam pageMargin 10
-skinparam pageExternalColor gray
-skinparam pageBorderColor black
+@startuml ClassIUML.png
+'scale max 1024 height
 
 !define PHP << (P,orchid) >>
+!define INC1 <-
+!define INC2 <---
+!define INC3 <-----
+!define INC4 <-------
+
+
+Namespace usersc {
+	Namespace includes {
+		class analytics PHP {
+
+		}
+		class bootstrap_corrections PHP {
+			
+		}
+
+		class head_tags PHP{
+			
+		}
+
+		class custom_functions PHP{
+
+		}
+
+		class head_tags PHP{
+
+		}
+
+		class navigation PHP{
+
+		}
+
+		class user_agreement PHP{
+
+		}
+	'Namespace includes	
+	}
+
+	Namespace scripts {
+		class custom_login_script PHP{
+
+		}
+		
+		class did_not_have_permission PHP{
+
+		}
+
+		class just_after_logout PHP {
+
+		}
+
+		class just_before_logout PHP{
+
+		}
+
+		class not_logged_in PHP{
+
+		}
+	'Namespace scripts
+	}
+'Namespace usersc	
+}
 
 namespace users {
+
+	class maintenance PHP{
+		
+	}
+
+	class init PHP {
+
+	}
+
+	class account PHP {
+
+
+	}
+
+	users.account <. users.init : included
+
 	class admin_page PHP {
 
 	}
@@ -254,11 +328,11 @@ namespace users {
 			importSqlFile($sqlFile)
 		}
 
-		class google_helpers  {
+		'class google_helpers  {
 	
-		}
-		google_helpers <. users.src.Google.Google_Client : includes
-		google_helpers <. users.src.Google.contrib.Google_Oauth2Service : includes
+		'}
+		'google_helpers <. users.src.Google.Google_Client : includes
+		'google_helpers <. users.src.Google.contrib.Google_Oauth2Service : includes
 
 
 		class helpers {
@@ -282,26 +356,87 @@ namespace users {
 			redirect($location)
 			output_message($message)
 		}
-		helpers <. us_helpers
-		helpers <. users_online
-		helpers <. language
-		helpers <. backup_util	
 
+		class us_helpers PHP{
+			testUS()
+			get_gravatar(...)
+			permissionIdExists($id)
+			userIdExists($id)
+			fetchPermissionDetails($id)
+			updatePermissionName($id, $name)
+		}
+		
+		class language PHP{
 
+		}
+
+		class users_online PHP{
+			usersOnline()
+			ipCheck()
+			new_user_online($user_id)
+			delete_user_online()
+			count_users()
+		}
+
+	
 	'Namepace helpers	
 	}
 
-'Namspace Users
+	Namespace includes{
+		class facebook_oauth PHP{
+		}
+
+		class google_oauth PHP{
+		}
+
+		class google_oauth_login PHP{
+		}
+
+		class header PHP{
+
+		}
+	
+		class html_footer PHP{
+
+		}
+
+		class navigation PHP{
+
+		}
+
+		class page_footer PHP{
+
+		}
+
+		class recaptcha_config PHP{
+
+		}
+
+		class user_spice_ver PHP{
+
+		}
+
+	'Namespace includes
+	}
+
+'Namespace Users
 }
 
-users.admin_page - users.classes.User
+'Below is to format the whole shape
+usersc -[hidden]down----> users
+users.includes -[hidden]down---> users.helpers
+users.helpers -[hidden]down---> users classes 
 
-users.classes.User - users.classes.Session
+users.includes.header <. users.helpers.helpers : included
+users.includes.header <. users.includes.user_spice_ver : included
+users.includes.header -o users.maintenance : redirect
+users.includes.header <. usersc.includes.head_tags : included
 
-users.admin_pages - users.classes.Session
+users.helpers.helpers <. users.helpers.us_helpers : include
+users.helpers.helpers <. users.helpers.users_online : include
+users.helpers.helpers <. users.helpers.language : include
+users.helpers.helpers <. users.helpers.backup_util : include
 
-
-
-
+'usersc.scripts.custom_login_script .> users.account : REDIRECT
 
 @enduml

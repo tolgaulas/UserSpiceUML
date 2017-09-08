@@ -1,0 +1,36 @@
+@startuml 
+!include CLASS_.plantuml
+
+'/usersc/includes/
+Namespace includes {
+	class analytics PHP {
+
+	}
+	class bootstrap_corrections PHP {
+		
+	}
+
+	class head_tags PHP{
+		
+	}
+
+	class custom_functions PHP{
+
+	}
+
+	class head_tags PHP{
+
+	}
+
+	class navigation PHP{
+
+	}
+
+	class user_agreement PHP{
+
+	}
+'Namespace includes	
+}
+
+
+@enduml

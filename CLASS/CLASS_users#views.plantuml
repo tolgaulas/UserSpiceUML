@@ -1,0 +1,52 @@
+@startuml
+!include CLASS_.plantuml
+
+'/users/views
+Namespace includes {
+
+	class _email_template_forgot_password PHP {
+	}
+
+	class _email_template_verify PHP{
+	}
+
+	class _forgot_password PHP{
+	}
+
+	class _forgot_password_reset PHP{
+	}
+
+	class _forgot_password_reset_error PHP{
+	}
+
+	class _forgot_password_reset_success PHP{
+	}
+
+	class _forgot_password_sent PHP{
+	}
+
+	class _join PHP{
+	}
+
+	class _joinThankYou PHP{
+	}
+
+	class _joinThankYou_verify PHP{
+	}	
+
+	class _verify_error PHP{
+	}	
+	
+	class _verify_resend PHP{
+	}
+
+	class _verify_resend_success PHP{
+	}
+
+	class _verify_success PHP{
+	}					
+
+'Namespace includes
+}
+
+@enduml

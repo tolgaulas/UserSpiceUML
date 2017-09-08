@@ -1,0 +1,17 @@
+@startuml
+!include CLASS_.plantuml
+
+'/users/src
+Namespace src {
+
+	package Facebook{
+	}
+	package Google{
+	}
+'	!include CLASS_users#src#Facebook.plantuml
+'	!include CLASS_users#src#Google.plantuml
+
+'Namespace src
+}
+
+@enduml

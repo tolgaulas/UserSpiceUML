@@ -1,0 +1,37 @@
+@startuml
+!include CLASS_.plantuml
+
+'/users/includes
+Namespace includes {
+
+	class facebook_oauth PHP {
+	}
+
+	class google_oauth PHP{
+	}
+
+	class google_oauth_login PHP{
+	}
+
+	class header PHP{
+	}
+
+	class html_footer PHP{
+	}
+
+	class navigation PHP{
+	}
+
+	class page_footer PHP{
+	}
+
+	class recaptcha_config PHP{
+	}
+
+	class user_spice_ver PHP{	
+	}
+
+'Namespace includes
+}
+
+@enduml
