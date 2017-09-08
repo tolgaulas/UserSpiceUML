@@ -1,8 +1,8 @@
 @startuml
-!include CLASS_.plantuml
+!include _defs.plantuml
 
 '/users/views
-Namespace includes {
+Namespace views {
 
 	class _email_template_forgot_password PHP {
 	}
@@ -46,7 +46,7 @@ Namespace includes {
 	class _verify_success PHP{
 	}					
 
-'Namespace includes
+'Namespace views
 }
 
 @enduml

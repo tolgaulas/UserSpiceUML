@@ -1,0 +1,8 @@
+@startuml 
+
+!define PHP << (P,orchid) >>
+!define REDIRECTS(x) ==> x : redirect >
+!define REQUIRES(x) <|-- x : included <
+!define HASLINK(x) ..o x : has links >
+!define CONSUMES(x) #-- x : consumes >
+@enduml

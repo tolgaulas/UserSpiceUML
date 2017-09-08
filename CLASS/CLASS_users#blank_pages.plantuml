@@ -1,6 +1,6 @@
 @startuml 
 
-!include CLASS_.plantuml
+!include _defs.plantuml
 
 '/users/blank_pages/
 namespace blank_pages{

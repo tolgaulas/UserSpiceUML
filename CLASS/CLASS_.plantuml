@@ -1,5 +1,14 @@
 @startuml 
 
-!define PHP << (P,orchid) >>
+!include _defs.plantuml
+
+class index PHP{
+}
+
+class z_us_root PHP{
+}
+
+!include CLASS_users.plantuml
+!include CLASS_usersc.plantuml
 
 @enduml

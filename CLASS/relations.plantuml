@@ -1,0 +1,103 @@
+@startuml 
+
+!include CLASS_.plantuml
+
+
+
+'{### BEGIN /users/views/
+    !define SCOPE users.views._email_template_forgot_password
+    SCOPE CONSUMES(users.classes.DB)
+    SCOPE HASLINK(users.forgot_password_reset)
+
+    !define SCOPE users.views._email_template_verify
+    SCOPE CONSUMES(users.classes.DB)
+    SCOPE HASLINK(users.verify)
+
+    !define SCOPE users.views._forgot_password
+    SCOPE CONSUMES(users.classes.Token)
+
+    !define SCOPE users.views._forgot_password_reset
+    SCOPE CONSUMES(users.classes.Token)
+
+    !define SCOPE users.views._forgot_password_reset_error
+    SCOPE HASLINK(users.forgot_password)  
+
+    !define SCOPE users.views._forgot_password_reset_success
+    SCOPE HASLINK(users.login)  
+
+    !define SCOPE users.views._forgot_password_sent
+    'no action here
+
+    !define SCOPE users.views._join
+    SCOPE CONSUMES(users.classes.Input)
+    SCOPE HASLINK(usersc.includes.user_agreement)
+    note top of users.views._join : This file uses users.helper.language content via $lang variable .\nShould be included beforehand.
+    SCOPE CONSUMES(users.classes.Token)
+
+    !define SCOPE users.views._joinThankYou
+    SCOPE HASLINK(users.login)  
+
+    !define SCOPE users.views._joinThankYou_verify
+    'no action here 
+
+    !define SCOPE users.views._verify_error
+    SCOPE HASLINK(users.views._verify_resend)
+
+    !define SCOPE users.views._verify_resend
+    SCOPE CONSUMES(users.classes.Token) 
+
+    !define SCOPE users.views._verify_resend_success
+    'no action here 
+
+    !define SCOPE users.views._verify_success
+    SCOPE HASLINK(users.login)  
+
+
+
+
+
+
+
+'### END /usersc/scripts/}
+
+'{### BEGIN /usersc/includes/
+    !define SCOPE usersc.includes.analytics
+    'no action here
+
+    !define SCOPE usersc.includes.bootstrap_corrections
+    'no action here
+
+    !define SCOPE usersc.includes.custom_functions
+    'no action here  
+
+    !define SCOPE usersc.includes.head_tags
+    'no action here      
+
+    !define SCOPE usersc.includes.navigation
+    'no action here      
+
+    !define SCOPE usersc.includes.user_agreement
+    'no action here      
+
+'### END /usersc/includes/}
+
+'{### BEGIN /usersc/scripts/
+
+    !define SCOPE usersc.scripts.custom_login_script
+    SCOPE REDIRECTS(users.account)
+
+    !define SCOPE usersc.scripts.did_not_have_permission
+    'no action here
+
+    !define SCOPE usersc.scripts.just_after_logout
+    SCOPE REDIRECTS(index)
+
+    !define SCOPE usersc.scripts.just_before_logout
+    'no action here
+
+    !define SCOPE usersc.scripts.not_logged_in
+    'no action here
+
+'### END /usersc/scripts/}
+
+@enduml

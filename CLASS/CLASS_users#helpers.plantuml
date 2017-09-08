@@ -1,6 +1,6 @@
 @startuml 
 
-!include CLASS_.plantuml
+!include _defs.plantuml
 
 'users/helpers/
 Namespace helpers{
