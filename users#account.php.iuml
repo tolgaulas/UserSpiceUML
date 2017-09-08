@@ -1,4 +1,5 @@
 @startuml
+!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
 
 title users/account.php
 
@@ -12,12 +13,6 @@ title users/account.php
 !define navigationPHP
 
 'End definitions
-
-!ifdef Local
-	!include _actors.iuml
-!else
-	!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
-!endif
 
 
 user->account : Requests

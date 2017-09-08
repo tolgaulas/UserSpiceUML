@@ -1,14 +1,7 @@
 @startuml
-!include _local.iuml
+!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
 
 !define TITLE "users/login.php"
-
-!ifdef Local
-	title TITLE (ON LOCAL)
-!else
-	title TITLE
-!endif
-
 
 'Begin definitions
 
@@ -26,12 +19,6 @@
 
 
 'End definitions
-
-!ifdef Local
-	!include _actors.iuml
-!else
-	!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
-!endif
 
 note over user 
 	This requires rework on the flow logic

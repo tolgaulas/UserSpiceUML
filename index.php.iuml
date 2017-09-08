@@ -1,5 +1,7 @@
 ﻿
-@startuml index.php
+@startuml 
+!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+
 
 'Begin definitions
 
@@ -13,11 +15,7 @@
 
 'End definitions
 
-!ifdef Local
-	!include _actors.iuml
-!else
-	!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
-!endif
+
 
 user->index: Requests
 
