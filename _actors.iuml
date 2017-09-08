@@ -1,4 +1,5 @@
 !define HLINK <size:20><&link-intact></size>
+!define REDIRECT <size:20><&external-link></size>
 
 !ifdef USER
 	actor user
@@ -8,7 +9,7 @@
 	boundary "index.php" as index
 !endif
 
-!ifdef accountPHP || joinPHP || loginPHP || initPHP
+!ifdef accountPHP || joinPHP || loginPHP || initPHP || maintenancePHP || adminPHP 
   box "users/" #WhiteSmoke
   	!ifdef accountPHP 
       boundary "account.php" as account
@@ -20,11 +21,20 @@
     
     !ifdef loginPHP
 		boundary "login.php" as login
-	!endif
+		!endif
     
+		!ifdef adminPHP
+		control "admin.php" as admin
+    !endif
+
+    !ifdef maintenancePHP
+		control "maintenance.php" as maintenance
+    !endif
+
     !ifdef initPHP
 		control "init.php" as init
     !endif
+
   end box
 !endif
 
@@ -67,3 +77,4 @@
 		!endif
 	end box
 !endif
+

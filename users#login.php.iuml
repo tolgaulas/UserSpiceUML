@@ -1,5 +1,4 @@
 @startuml
-!includeurl http://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
 
 !define TITLE "users/login.php"
 
@@ -17,6 +16,10 @@
 !define page_footerPHP
 !define html_footerPHP
 
+!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+!include _actors.iuml
+
+!define THEPAGE login
 
 'End definitions
 
@@ -24,35 +27,35 @@ note over user
 	This requires rework on the flow logic
 end note
 
-user->login : Requests
+user->THEPAGE : Requests
 
-activate login
-	login <- init : included
-	login <- header : included
-    login <- navigation: included
+activate THEPAGE
+	THEPAGE <- init : included
+	THEPAGE <- header : included
+    THEPAGE <- navigation: included
     group if Input::exists()
       group if $settings->recaptcha == 1
-          login <- recaptcha_config : included
+          THEPAGE <- recaptcha_config : included
       else
 
       end
-      login <-custom_login_script : included
+      THEPAGE <-custom_login_script : included
 
 	end
 
 	group if $settings->glogin==1
-		login <- google_oauth_login : included
+		THEPAGE <- google_oauth_login : included
 	end
 
 	group if $settings->fblogin==1
-		login <- facebook_oauth_login : included
+		THEPAGE <- facebook_oauth_login : included
 	end 
 
-	login <- page_footer : included
-    login <- html_footer : included
+	THEPAGE <- page_footer : included
+    THEPAGE <- html_footer : included
     
-login->user : Display page
-deactivate login
+THEPAGE->user : Display page
+deactivate THEPAGE
 
 
 @enduml
