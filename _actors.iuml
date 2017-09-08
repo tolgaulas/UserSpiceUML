@@ -70,11 +70,27 @@
   end box
 !endif
 
+!ifdef helpersPHP
+	box "users/helpers/" #Silver
+		!ifdef helpersPHP
+			control "helpers.php" as helpers
+		!endif
+	end box
+!endif
+
 !ifdef custom_login_scriptPHP
-	box "usersc/scripts/" #Silver
+	box "usersc/scripts/" #Darkgray
 		!ifdef custom_login_scriptPHP
 			control "custom_login_script.php" as custom_login_script
 		!endif
 	end box
+!endif
+
+!ifdef Database
+'	box "usersc/scripts/" #Silver
+'		!ifdef custom_login_scriptPHP
+			database "Database" as DB
+'		!endif
+'	end box
 !endif
 

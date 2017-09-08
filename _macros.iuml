@@ -1,0 +1,15 @@
+!define HLINK <size:20><&link-intact></size>
+!define REDIRECT <size:20><&external-link></size>
+
+!define INIT
+
+!definelong INIT(page)
+	!define initPHP
+	!define helpersPHP
+	activate init
+		init <- helpers
+
+		page<-init : Included
+	deactivate init
+!enddefinelong
+

@@ -6,31 +6,32 @@ title users/account.php
 
 !define USER
 !define adminPHP
-!define initPHP
+'!define initPHP
 !define headerPHP
 !define navigationPHP
 !define maintenancePHP
 !define page_footerPHP
 !define html_footerPHP
+!define Database
 
 'End definitions
 
 '!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+!include _macros.iuml
 !include _actors.iuml
+
 
 !define THEPAGE admin 
 
+
 user->THEPAGE : Requests
 activate THEPAGE
-    THEPAGE <- init : included
+'    THEPAGE <- init : included
+    INIT(THEPAGE)
 	THEPAGE <- header : included
     THEPAGE <- navigation: included
 
-
-    group if $settings->site_offline==1
-        THEPAGE-> maintenance : REDIRECT  
-        destroy THEPAGE
-    end
+    THEPAGE <- DB : Reads
 
     THEPAGE <- page_footer : included
     THEPAGE <- html_footer : included

@@ -1,0 +1,42 @@
+@startuml
+
+package users {
+	[admin_page.php]
+	[admin_pages.php]
+
+	package _blank_pages{
+		[project_root.php]
+		[userspice_blank.php]
+	}
+
+	package classes{
+		[Config.php]
+		[Cookie.php]
+		[DB.php]
+		[Hash.php]
+		[Input.php]
+		[Redirect.php]
+		[Session.php]
+		[Shuttle_Dumper.php]
+		[Token.php]
+		[User.php]
+		[Validate.php]
+	}
+
+	package helpers{
+		[audit.php]
+		[backup_util.php]
+		[google_helpers.php]
+		[helpers.php]
+		[language.php]
+		[us_helpers.php]
+		[users_online.php]
+	}
+
+}
+
+
+
+
+
+@enduml
