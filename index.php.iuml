@@ -15,8 +15,6 @@
 
 'End definitions
 
-
-
 user->index: Requests
 
 activate index
@@ -25,7 +23,7 @@ activate index
   
 	alt $user->isLoggedIn() == TRUE
 		|||
-        index o--> account : ACCOUNT link
+        index o--> account LINK : ACCOUNT link
 		|||
 	else $user->isLoggedIn() != TRUE
  		|||
