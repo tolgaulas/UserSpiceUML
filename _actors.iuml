@@ -1,6 +1,4 @@
 
-!define Local
-
 !ifdef USER
 	actor user
 !endif
