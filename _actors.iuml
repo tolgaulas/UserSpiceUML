@@ -1,3 +1,5 @@
+!define HLINK <size:20><&link-intact></size>
+
 !ifdef USER
 	actor user
 !endif
