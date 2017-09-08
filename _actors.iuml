@@ -1,5 +1,6 @@
 @startuml
 title hello
+a-b
 
 !define LINK <size:20><&link-intact></size>
 
