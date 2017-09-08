@@ -1,3 +1,5 @@
+@startuml
+note -left "hello world"
 
 !ifdef USER
 	actor user
@@ -66,3 +68,4 @@
 		!endif
 	end box
 !endif
+@enduml

@@ -1,5 +1,5 @@
 @startuml
-!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+!includeurl http://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
 
 !define TITLE "users/login.php"
 
