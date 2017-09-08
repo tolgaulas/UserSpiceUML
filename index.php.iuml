@@ -10,8 +10,8 @@
 !define navigationPHP
 'End definitions
 
-'!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
-!include _actors.iuml
+!includeurl https://raw.githubusercontent.com/tolgaulas/UserSpiceUML/master/_actors.iuml
+'!include _actors.iuml
 
 user->index: Requests
 
