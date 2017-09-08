@@ -1,4 +1,5 @@
 @startuml
+title hello
 
 !define LINK <size:20><&link-intact></size>
 
