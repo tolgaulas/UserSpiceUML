@@ -1,9 +1,3 @@
-@startuml
-title hello
-a-b
-
-!define LINK <size:20><&link-intact></size>
-
 !ifdef USER
 	actor user
 !endif
@@ -71,5 +65,3 @@ a-b
 		!endif
 	end box
 !endif
-
-@enduml
